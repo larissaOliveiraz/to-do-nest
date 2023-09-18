@@ -5,6 +5,7 @@ import { PrismaService } from 'database/prisma';
 import { UserPrismaRepository } from 'repositories/prisma/user-prisma.repository';
 import { IUserRepository } from 'repositories/user.repository';
 import { CreateUserService } from 'services/create-user.service';
+import { ProfileUserService } from 'services/profile-user.service';
 import { SignInUserService } from 'services/sign-in-user.service';
 
 @Module({
@@ -12,13 +13,14 @@ import { SignInUserService } from 'services/sign-in-user.service';
     JwtModule.register({
       global: true,
       secret: 'senha',
-      signOptions: { expiresIn: '8h' },
+      signOptions: { expiresIn: '60s' },
     }),
   ],
   controllers: [UserController],
   providers: [
     CreateUserService,
     SignInUserService,
+    ProfileUserService,
     PrismaService,
     {
       provide: IUserRepository,
