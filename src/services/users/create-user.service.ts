@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { hash } from 'bcryptjs';
-import { CreateUserDTO } from 'dto/user.dto';
+import { CreateUserRequestDTO } from 'dto/user.dto';
 import { UserAlreadyExistsError } from 'errors/UserAlreadyExistsError';
 import { IUserRepository } from 'repositories/user.repository';
 
@@ -8,7 +8,7 @@ import { IUserRepository } from 'repositories/user.repository';
 export class CreateUserService {
   constructor(private userRepository: IUserRepository) {}
 
-  async execute({ name, username, email, password }: CreateUserDTO) {
+  async execute({ name, username, email, password }: CreateUserRequestDTO) {
     const user = await this.userRepository.findUserByUsernameOrEmail(
       username,
       email,

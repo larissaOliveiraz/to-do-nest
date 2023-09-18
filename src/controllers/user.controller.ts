@@ -9,7 +9,7 @@ import {
 import { SignInDTO } from 'dto/user.dto';
 import { AuthGuard } from 'guard/auth.guard';
 import { CreateUserDTO, ProfileUserDTO } from 'schemas/user.schema';
-import { CreateUserService } from 'services/create-user.service';
+import { CreateUserService } from 'services/users/create-user.service';
 import { ProfileUserService } from 'services/profile-user.service';
 import { SignInUserService } from 'services/sign-in-user.service';
 
