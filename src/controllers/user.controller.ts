@@ -6,8 +6,9 @@ import {
   UseGuards,
   Request,
 } from '@nestjs/common';
-import { CreateUserDTO, SignInDTO } from 'dto/user.dto';
+import { SignInDTO } from 'dto/user.dto';
 import { AuthGuard } from 'guard/auth.guard';
+import { CreateUserDTO, ProfileUserDTO } from 'schemas/user.schema';
 import { CreateUserService } from 'services/create-user.service';
 import { ProfileUserService } from 'services/profile-user.service';
 import { SignInUserService } from 'services/sign-in-user.service';
@@ -35,7 +36,9 @@ export class UserController {
   @UseGuards(AuthGuard)
   async profile(@Request() request) {
     const { user } = await this.profileUserService.execute(request.user.sub);
-    const { password: _, ...profile } = user;
+
+    const profile = ProfileUserDTO.parse(user);
+
     return profile;
   }
 }
