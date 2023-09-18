@@ -7,6 +7,16 @@ import { IUserRepository } from 'repositories/user.repository';
 export class UserPrismaRepository implements IUserRepository {
   constructor(private prisma: PrismaService) {}
 
+  async findById(id: string) {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return user ? user : null;
+  }
+
   async findUserByUsernameOrEmail(username: string, email: string) {
     const user = await this.prisma.user.findFirst({
       where: {
