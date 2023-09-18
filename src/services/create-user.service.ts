@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { hash } from 'bcryptjs';
-import { CreateUserDTO } from 'src/dto/user.dto';
-import { UserAlreadyExistsError } from 'src/errors/UserAlreadyExistsError';
-import { IUserRepository } from 'src/repositories/user.repository';
+import { CreateUserDTO } from 'dto/user.dto';
+import { UserAlreadyExistsError } from 'errors/UserAlreadyExistsError';
+import { IUserRepository } from 'repositories/user.repository';
 
 @Injectable()
 export class CreateUserService {
