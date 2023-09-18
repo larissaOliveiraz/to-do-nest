@@ -17,6 +17,16 @@ export class UserPrismaRepository implements IUserRepository {
     return user ? user : null;
   }
 
+  async findByUsername(username: string) {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        username,
+      },
+    });
+
+    return user ? user : null;
+  }
+
   async create(data: Prisma.UserCreateInput) {
     const user = await this.prisma.user.create({
       data,
