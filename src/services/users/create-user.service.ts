@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { hash } from 'bcryptjs';
-import { CreateUserRequestDTO } from 'dto/user.dto';
-import { UserAlreadyExistsError } from 'errors/UserAlreadyExistsError';
-import { IUserRepository } from 'repositories/user.repository';
+import { CreateUserRequestDTO } from '../../dto/user.dto';
+import { UserAlreadyExistsError } from '../../errors/UserAlreadyExistsError';
+import { IUserRepository } from '../../repositories/user.repository';
 
 @Injectable()
 export class CreateUserService {
@@ -13,8 +13,11 @@ export class CreateUserService {
       username,
       email,
     );
-    if (user) {
-      throw new UserAlreadyExistsError();
+    if (user && user.username === username) {
+      throw new UserAlreadyExistsError('username');
+    }
+    if (user && user.email === email) {
+      throw new UserAlreadyExistsError('email');
     }
 
     const passwordHash = await hash(password, 6);

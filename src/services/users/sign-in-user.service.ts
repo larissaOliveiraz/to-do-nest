@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { compare } from 'bcryptjs';
-import { SignInDTO } from 'dto/user.dto';
-import { IUserRepository } from 'repositories/user.repository';
-import { InvalidCredentialsError } from 'errors/InvalidCredentialsError';
+import { SignInDTO } from '../../dto/user.dto';
+import { InvalidCredentialsError } from '../../errors/InvalidCredentialsError';
+import { IUserRepository } from '../../repositories/user.repository';
 
 @Injectable()
 export class SignInUserService {

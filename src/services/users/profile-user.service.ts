@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { UserNotFoundError } from 'errors/UserNotFoundError';
-import { IUserRepository } from 'repositories/user.repository';
+import { UserNotFoundError } from '../../errors/UserNotFoundError';
+import { IUserRepository } from '../../repositories/user.repository';
 
 @Injectable()
 export class ProfileUserService {

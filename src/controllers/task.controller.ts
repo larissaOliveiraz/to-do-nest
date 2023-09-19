@@ -1,7 +1,7 @@
 import { Body, Controller, Post, Request, UseGuards } from '@nestjs/common';
-import { AuthGuard } from 'guard/auth.guard';
-import { CreateTaskDTO } from 'schemas/task.schema';
-import { CreateTaskService } from 'services/tasks/create-task.service';
+import { AuthGuard } from '../guard/auth.guard';
+import { CreateTaskDTO } from '../schemas/task.schema';
+import { CreateTaskService } from '../services/tasks/create-task.service';
 
 @Controller('/tasks')
 export class TaskController {
