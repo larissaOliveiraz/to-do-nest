@@ -2,10 +2,10 @@ import { ProfileUserService } from '../profile-user.service';
 import { UserMemoryRepository } from '../../../repositories/in-memory/user-memory.repository';
 import { UserNotFoundError } from '../../../errors/UserNotFoundError';
 
-describe('Profile User Service', () => {
-  let service: ProfileUserService;
-  let repository: UserMemoryRepository;
+let service: ProfileUserService;
+let repository: UserMemoryRepository;
 
+describe('Profile User Service', () => {
   beforeEach(async () => {
     repository = new UserMemoryRepository();
     service = new ProfileUserService(repository);

@@ -3,7 +3,7 @@ import { randomUUID } from 'node:crypto';
 import { IUserRepository } from '../user.repository';
 
 export class UserMemoryRepository implements IUserRepository {
-  private users: User[] = [];
+  users: User[] = [];
 
   async findById(id: string) {
     const user = this.users.find((item) => item.id === id);
