@@ -23,7 +23,11 @@ export class UserController {
 
   @Post()
   async create(@Body() data: CreateUserDTO) {
-    await this.createUserService.execute(data);
+    const { user } = await this.createUserService.execute(data);
+
+    const profile = ProfileUserDTO.parse(user);
+
+    return { profile };
   }
 
   @Post('/sign-in')

@@ -2,6 +2,7 @@ import { z } from 'nestjs-zod/z';
 import { createZodDto } from 'nestjs-zod';
 
 export const UserSchema = z.object({
+  id: z.string(),
   name: z.string({
     required_error: 'Name is required.',
   }),
@@ -18,7 +19,8 @@ export const UserSchema = z.object({
   }),
 });
 
-export class CreateUserDTO extends createZodDto(UserSchema) {}
+export const UserSchemaWithoutId = UserSchema.omit({ id: true });
+export class CreateUserDTO extends createZodDto(UserSchemaWithoutId) {}
 
 export const ProfileUserDTO = UserSchema.omit({ password: true });
 export type ProfileUserDTO = z.infer<typeof ProfileUserDTO>;
