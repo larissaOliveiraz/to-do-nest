@@ -27,7 +27,7 @@ export class UserMemoryRepository implements IUserRepository {
 
   async create(data: Prisma.UserCreateInput) {
     const user: User = {
-      id: randomUUID(),
+      id: data.id ? data.id : randomUUID(),
       name: data.name,
       username: data.username,
       email: data.email,
