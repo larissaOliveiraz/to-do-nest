@@ -5,8 +5,8 @@ import { PrismaService } from 'database/prisma';
 import { UserPrismaRepository } from 'repositories/prisma/user-prisma.repository';
 import { IUserRepository } from 'repositories/user.repository';
 import { CreateUserService } from 'services/users/create-user.service';
-import { ProfileUserService } from 'services/profile-user.service';
-import { SignInUserService } from 'services/sign-in-user.service';
+import { ProfileUserService } from 'services/users/profile-user.service';
+import { SignInUserService } from 'services/users/sign-in-user.service';
 
 @Module({
   imports: [

@@ -9,7 +9,6 @@ export class CreateTaskService {
   async execute({
     title,
     description,
-    endAt,
     priority,
     status,
     user_id,
@@ -17,7 +16,6 @@ export class CreateTaskService {
     const task = await this.taskRepository.create({
       title,
       description,
-      end_at: endAt,
       priority,
       status,
       user_id,

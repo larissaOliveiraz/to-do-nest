@@ -27,10 +27,9 @@ model Task {
   id String @id @default(uuid())
   title String
   description String
-  start_at DateTime @default(now())
-  end_at DateTime
   priority String
   status String
+  created_at DateTime @default(now())
 
   user User @relation(fields: [user_id], references: [id])
   user_id String
