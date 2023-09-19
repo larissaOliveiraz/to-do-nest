@@ -1,7 +1,9 @@
+import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from 'database/prisma';
 import { ITaskRepository } from 'repositories/task.repository';
 
+@Injectable()
 export class TaskPrismaRepository implements ITaskRepository {
   constructor(private prisma: PrismaService) {}
 
